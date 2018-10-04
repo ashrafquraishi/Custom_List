@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5A7AF76D-0F0A-45A3-B5A3-40D603CBDE89}</ProjectGuid>
+    <ProjectGuid>{5A8B55EE-EF2D-436D-B989-1DC5963DC7CB}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Custon_list</RootNamespace>
-    <AssemblyName>Custon_list</AssemblyName>
+    <RootNamespace>Customlistclass</RootNamespace>
+    <AssemblyName>Customlistclass</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

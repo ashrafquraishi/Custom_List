@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Customlist;
-namespace Customlist
+
+namespace Customlist_test
 {
     [TestClass]
     public class UnitTest1

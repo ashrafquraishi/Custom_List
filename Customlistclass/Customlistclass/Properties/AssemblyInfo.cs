@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Custon_list")]
+[assembly: AssemblyTitle("Customlistclass")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Custon_list")]
+[assembly: AssemblyProduct("Customlistclass")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5a7af76d-0f0a-45a3-b5a3-40d603cbde89")]
+[assembly: Guid("5a8b55ee-ef2d-436d-b989-1dc5963dc7cb")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Custon_list", "Custon_list\Custon_list.csproj", "{5A7AF76D-0F0A-45A3-B5A3-40D603CBDE89}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customlistclass", "Customlistclass\Customlistclass.csproj", "{5A8B55EE-EF2D-436D-B989-1DC5963DC7CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5A7AF76D-0F0A-45A3-B5A3-40D603CBDE89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A7AF76D-0F0A-45A3-B5A3-40D603CBDE89}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5A7AF76D-0F0A-45A3-B5A3-40D603CBDE89}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5A7AF76D-0F0A-45A3-B5A3-40D603CBDE89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A8B55EE-EF2D-436D-B989-1DC5963DC7CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A8B55EE-EF2D-436D-B989-1DC5963DC7CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A8B55EE-EF2D-436D-B989-1DC5963DC7CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A8B55EE-EF2D-436D-B989-1DC5963DC7CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {03C7390D-AFF0-41F0-92BA-630A12047538}
+		SolutionGuid = {53EDE0E5-8516-406B-BC97-5147B62054BC}
 	EndGlobalSection
 EndGlobal
