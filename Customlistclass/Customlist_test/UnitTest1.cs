@@ -11,7 +11,7 @@ namespace Customlist_test
         {
             // Arrange
             CustomList<int> numbers = new CustomList<int>();
-            int expected = 10;
+            int expected = 0;
             // Act
             numbers.Add(10);
             //Assert
@@ -33,10 +33,11 @@ namespace Customlist_test
         {
             // Arrange
             CustomList<int> numbers = new CustomList<int>();
-            int expected = 1;
+            int expected = 0;
 
             // Act
             numbers.Add(100);
+            numbers.Add(50);
             //Assert
             Assert.AreEqual(expected, numbers[0]);
         }
