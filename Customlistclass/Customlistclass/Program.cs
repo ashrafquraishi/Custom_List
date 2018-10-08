@@ -16,7 +16,24 @@ namespace Customlistclass
             //  CustomList<int> answer = testList + testList2;
             testList.Add(8);
             testList.Add(12);
-
+            testList.Add(8);
+            testList.Add(12);
+            testList.Add(8);
+            testList.Add(12); testList.Add(8);
+            testList.Add(12);
+            testList.Add(8);
+            testList.Add(12);
+            testList.Add(8);
+            testList.Add(12);
+            testList.Add(8);
+            testList.Add(12); testList.Add(8);
+            testList.Add(12); testList.Add(8);
+            testList.Add(12);
+            testList.Add(8);
+            testList.Add(12);
+            testList.Add(8);
+            testList.Add(12); testList.Add(8);
+            testList.Add(12);
         }
     }
 }

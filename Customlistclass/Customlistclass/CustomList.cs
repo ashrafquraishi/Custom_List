@@ -11,7 +11,7 @@ namespace Custom_list_class
         T[] data;
         int count;
 
-        private T[] arr = new T[100];
+        private T[] arr = new T[1];
 
 
         public T this[int i]
@@ -29,7 +29,7 @@ namespace Custom_list_class
 
         }
         }
-        public  int Capacity = 4;
+        
 
        
         public CustomList()
@@ -38,13 +38,19 @@ namespace Custom_list_class
             data = new T[4];
             count = 0;
         }
-    
+       static public  int Capacity = 4;
+        T[] items = new T[Capacity];
         public void Add(T value)
         {
 
             T[] numbers = new T[Capacity * 2];
-            data[count] = value;
+            for(int i = 0; i<Count; i++)
+            {
+                numbers[i] = items[i];
+            }
+           numbers[count] = value;
             count++;
+            items=numbers;
         }
 
     

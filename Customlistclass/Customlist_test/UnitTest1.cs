@@ -40,6 +40,12 @@ namespace Customlist_test
             numbers.Add(50);
             //Assert
             Assert.AreEqual(expected, numbers[0]);
+
+        }
+        //[TestMethod]
+        //public void Remove_Item()
+        //{
+        //    CustomList<int> 
         }
     }
 }
