@@ -35,10 +35,10 @@ namespace Custom_list_class
         public CustomList()
         {
             
-            data = new T[4];
+            data = new T[100];
             count = 0;
         }
-       static public  int Capacity = 4;
+       static public  int Capacity = 100;
         T[] items = new T[Capacity];
         public void Add(T value)
         {
@@ -52,7 +52,18 @@ namespace Custom_list_class
             count++;
             items=numbers;
         }
+         public void Remove(T value)
+         {
+            for(int i=0; i<Count;i++)
+            {
+               if( data[i].Equals( value))
+               {
+                    count--;
+               }
+            }
 
+
+         }
     
     }
         

@@ -42,13 +42,32 @@ namespace Customlist_test
             Assert.AreEqual(expected, numbers[0]);
 
         }
-        //[TestMethod]
-        //public void Remove_Item()
-        //{
-        //    CustomList<int> 
+        [TestMethod]
+        public void RemoveString()
+        {
+            CustomList<int> intList = new CustomList<int>();
+            //Arrange
+            int RemoveNumber = 1;
+            int Expected = intList.Count;
+            intList.Add(5);
+            intList.Add(6);
+            intList.Add(7);
+            intList.Add(8);
+            intList.Add(9);
+            intList.Add(RemoveNumber);
+            intList.Remove(RemoveNumber);
+            intList.Remove(8);
+            // Assert
+            Assert.AreNotEqual(Expected,intList.Count);
+
         }
+       
+
+            
+           
     }
 }
+
 
 
 
