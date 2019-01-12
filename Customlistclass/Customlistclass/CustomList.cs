@@ -11,64 +11,117 @@ namespace Custom_list_class
         T[] data;
         int count;
 
-        private T[] arr = new T[1];
-
-
-        public T this[int i]
-        {
-            get { return arr[i]; }
-            set { arr[i] = value; }
-        }
-
-        public int Count
-        {
-         get
-        {
-
-          return count;
-
-        }
-        }
-        
-
-       
+        int capacity;
+        public T[] myListArray;
         public CustomList()
         {
-            
-            data = new T[100];
             count = 0;
+            capacity = 5;
+            myListArray = new T[capacity];
         }
-       static public  int Capacity = 100;
-        T[] items = new T[Capacity];
-        public void Add(T value)
+        public CustomList(int capacity)
         {
-
-            T[] numbers = new T[Capacity * 2];
-            for(int i = 0; i<Count; i++)
-            {
-                numbers[i] = items[i];
-            }
-           numbers[count] = value;
-            count++;
-            items=numbers;
+            count = 0;
+            myListArray = new T[capacity];
+            this.capacity = capacity;
         }
-         public void Remove(T value)
-         {
-            for(int i=0; i<Count;i++)
+        public int Capacity
+        {
+            get
             {
-               if( data[i].Equals( value))
-               {
-                    count--;
-               }
+                return capacity;
             }
+            set
+            {
+                capacity = value;
+            }
+        }
+        public int Count
+        {
+            get
+            {
+                return count;
+            }
+        }
+        public int MyListCount()
+        {
+            return this.count;
+        }
+        public int MyListCapacity()
+        {
+            return this.capacity;
+        }
+
+        public void MyListAdd(T item)
+        {
+            if ((capacity - count) == 0)
+            {
+                DoubleArraySize();
+                myListArray[count] = item;
+                count++;
+            }
+            else
+            {
+                myListArray[count] = item;
+                count++;
+            }
+        }
+        public void DoubleArraySize()
+        {
+            int doubleCapacity = capacity * 2;
+            T[] temporary = new T[(doubleCapacity)];
+            for (int i = 0; i < (capacity); i++)
+            {
+                temporary[i] = myListArray[i];
+            }
+            capacity = capacity * 2;
+            myListArray = temporary;
+        }
 
 
-         }
-    
+        public bool Remove(T item)
+        {
+            T[] temporary = new T[capacity];
+            bool shiftDown = false;
+            for (int i = 0; i < count; i++)
+            {
+                if (myListArray[i].Equals(item))
+                {
+                    temporary[i] = myListArray[i + 1];
+                    count--;
+                    // shiftDown = true;///
+                }
+                else if (shiftDown == true)
+                {
+                    temporary[i] = myListArray[i + 1];
+                }
+                else
+                {
+                    temporary[i] = myListArray[i];
+                }
+            }
+            myListArray = temporary;
+            return shiftDown;
+        }
+        
+
+        public override string ToString()
+        {
+            string myString = "";
+            foreach (T element in myListArray)
+            {
+                myString += string.Format("{0}", element);
+            }
+            return myString;
+        }
+
     }
+
+
+}
         
     
 
     
 
-}
+
