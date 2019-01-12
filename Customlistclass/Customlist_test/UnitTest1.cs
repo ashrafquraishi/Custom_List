@@ -108,6 +108,37 @@ namespace Customlist_test
             //Assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void Add_TwoIntsToEmptyList_SecondIndexEqualsLastIntAdded()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int value = 16;
+            int value1 = 20;
+
+            //Act
+            customList.Add(value);
+            customList.Add(value1);
+
+            //Assert
+            Assert.AreEqual(value1, customList[1]);
+        }
+        [TestMethod]
+        public void Remove_OnlyValueIntInList_ListCountIsZero()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int value = 16;
+            int expected = 0;
+
+            //Act
+            customList.Add(value);
+            customList.Remove(value);
+            int actual = customList.Count;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
 
