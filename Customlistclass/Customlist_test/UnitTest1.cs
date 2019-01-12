@@ -5,7 +5,7 @@ namespace Customlist_test
 {
     [TestClass]
     public class UnitTest1
-    { 
+    {
         [TestMethod]
         public void Add_EmptyList_ValueToIndexZero()
         {
@@ -28,6 +28,40 @@ namespace Customlist_test
             //Assert
             Assert.AreEqual(expected, numbers.Count);
         }
+        [TestMethod]
+        public void Remove_IntIncludedInList_OtherIntIsOnlyOneRemaining()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int value = 16;
+            int value1 = 20;
+
+            //Act
+            customList.Add(value);
+            customList.Add(value1);
+            customList.Remove(value);
+
+            //Assert
+            Assert.AreEqual(value1, customList[0]);
+        }
+        [TestMethod]
+        public void Add_TwoInts_CountEqualsTwo()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int value = 16;
+            int value1 = 20;
+            int expected = 2;
+
+            //Act
+            customList.Add(value);
+            customList.Add(value1);
+            int actual = customList.Count;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
         [TestMethod]
         public void Add_TwoItems_SecondItemGoesToIndexOne()
         {
@@ -58,26 +92,24 @@ namespace Customlist_test
             intList.Remove(RemoveNumber);
             intList.Remove(8);
             // Assert
-            Assert.AreNotEqual(Expected,intList.Count);
+            Assert.AreNotEqual(Expected, intList.Count);
 
         }
 
         [TestMethod]
-        public void AddStringToMyList_Pass_Test()
+        public void ToString_OneListOfInts_StringReturned()
         {
-            MyList<string> testString = new MyList<string>();
+            //Arrange
+            CustomList<int> customList = new CustomList<int>() { 11, 9, 7, 8 };
+            string expected = "11, 9, 7, 8";
+            //Act
+            string actual = customList.ToString();
 
-            testString.MyListAdd("cheese");
-            testString.MyListAdd("beer");
-
-
-            Assert.AreEqual("cheese", testString[0]);
-
-
-
+            //Assert
+            Assert.AreEqual(expected, actual);
         }
     }
-
+}
 
 
 
