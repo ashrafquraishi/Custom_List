@@ -13,6 +13,8 @@ namespace Custom_list_class
 
         int capacity;
         public T[] myListArray;
+        private T[] items;
+
         public CustomList()
         {
             count = 0;
@@ -52,20 +54,33 @@ namespace Custom_list_class
             return this.capacity;
         }
 
-        public void MyListAdd(T item)
+        public void Add(T value)
         {
-            if ((capacity - count) == 0)
+            T[] temp = new T[capacity * 2];
+
+            for (int i = 0; i < Count; i++)
             {
-                DoubleArraySize();
-                myListArray[count] = item;
-                count++;
+                temp[i] = temp[i];
             }
-            else
+            if (Count == capacity)
             {
-                myListArray[count] = item;
-                count++;
+                capacity = capacity * 2;
             }
+            temp[count] = value;
+            count++;
+            items = temp;
+            SetCount();
         }
+        private void SetCount()
+        {
+            int i = 0;
+            foreach (T value in this)
+            {
+                i++;
+            }
+            count = i;
+        }
+
         public void DoubleArraySize()
         {
             int doubleCapacity = capacity * 2;
@@ -114,7 +129,21 @@ namespace Custom_list_class
             }
             return myString;
         }
-
+        public T this[int i]
+        {
+            get
+            {
+                if (i >= count)
+                {
+                    return default(T);
+                }
+                return items[i];
+            }
+            set
+            {
+                items[i] = value;
+            }
+        }
     }
 
 

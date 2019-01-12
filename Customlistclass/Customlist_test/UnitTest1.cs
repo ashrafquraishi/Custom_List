@@ -5,17 +5,17 @@ namespace Customlist_test
 {
     [TestClass]
     public class UnitTest1
-    {
+    { 
         [TestMethod]
         public void Add_EmptyList_ValueToIndexZero()
         {
             // Arrange
-            CustomList<int> testList = new CustomList<int>();
-            int value = 5;
+            CustomList<int> numbers = new CustomList<int>();
+            int expected = 0;
             // Act
-            testList.Add(value);
+            numbers.Add(10);
             //Assert
-            Assert.AreEqual(value, testList[0]);
+            Assert.AreEqual(expected, numbers[0]);
         }
         [TestMethod]
         public void Add_EmptyList_CountOfOne()
@@ -58,7 +58,7 @@ namespace Customlist_test
             intList.Remove(RemoveNumber);
             intList.Remove(8);
             // Assert
-            Assert.AreNotEqual(Expected, intList.Count);
+            Assert.AreNotEqual(Expected,intList.Count);
 
         }
 
@@ -77,7 +77,7 @@ namespace Customlist_test
 
         }
     }
-}
+
 
 
 
