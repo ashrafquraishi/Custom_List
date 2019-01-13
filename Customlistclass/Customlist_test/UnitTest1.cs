@@ -169,6 +169,44 @@ namespace Customlist_test
             //Assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void Count_AddAnotherValueToList_CountGoesUpOne()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int value = 10;
+            int value1 = 22;
+
+            int expected = 2;
+
+            //Act
+            customList.Add(value);
+            customList.Add(value1);
+            int actual = customList.Count;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Count_RemoveAElementFromList_CountGoesDownOne()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int value = 10;
+            int value1 = 22;
+
+            int expected = 1;
+
+            //Act
+            customList.Add(value);
+            customList.Add(value1);
+            customList.Remove(value1);
+            int actual = customList.Count;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
 
     }
 }
