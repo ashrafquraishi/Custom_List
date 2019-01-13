@@ -207,7 +207,54 @@ namespace Customlist_test
             //Assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void Count_RemoveAElementThenAddAnother_CountIsTheSame()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int value = 10;
+            int value1 = 22;
+            int value2 = 33;
 
+            int expected = 2;
+
+            //Act
+            customList.Add(value);
+            customList.Add(value1);
+            customList.Remove(value1);
+            customList.Add(value2);
+            int actual = customList.Count;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        // *** Indexing Tests ***
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void Indexer_EmptyListIndexZero_ArgumentOutOfRangeExceptionThrown()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int index = 2;
+            //Act
+            customList.Remove(index);
+        }
+
+        [TestMethod]
+        public void Indexer_ListWithOneElement_IndexZeroGivesUsTheOneElement()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int index = 0;
+            int expected = 11;
+            //Act
+            customList.Add(expected);
+            int actual = customList[index];
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
 
