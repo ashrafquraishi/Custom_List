@@ -288,7 +288,30 @@ namespace Customlist_test
             //Assert
             Assert.AreEqual(expected, actual);
         }
-       
+        // *** '+' Operator Overload Tests ***
+
+        [TestMethod]
+        public void PlusOverload_TwoListsT_NewListCountEqualsSumOfTwoListsCounts()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> customList1 = new CustomList<int>();
+            CustomList<int> newList = new CustomList<int>();
+            int expected = 4;
+            int value = 11;
+            int value1 = 2;
+
+            //Act
+            customList.Add(value);
+            customList.Add(value1);
+            customList1.Add(value1);
+            customList1.Add(value);
+            newList = customList + customList1;
+            int actual = newList.Count;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
 
