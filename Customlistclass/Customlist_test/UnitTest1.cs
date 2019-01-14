@@ -255,6 +255,40 @@ namespace Customlist_test
             //Assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void Indexer_ListWithTwoElement_IndexZeroGivesUsTheFirstElement()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int index = 0;
+            int expected = 11;
+            int value = 20;
+            //Act
+            customList.Add(expected);
+            customList.Add(value);
+            int actual = customList[index];
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Indexer_ListWithTwoElement_IndexOneGivesUsLastElement()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int index = 1;
+            int expected = 11;
+            int value = 20;
+            //Act
+            customList.Add(value);
+            customList.Add(expected);
+            int actual = customList[index];
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }
 
