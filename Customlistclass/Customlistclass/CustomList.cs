@@ -149,6 +149,21 @@ namespace Custom_list_class
                 items[i] = value;
             }
         }
+        public static CustomList<T> operator +(CustomList<T> List1, CustomList<T> List2)
+        {
+            CustomList<T> newList = new CustomList<T>();
+
+            for (int i = 0; i < List1.Count; i++)
+            {
+                newList.Add(List1[i]);
+            }
+            for (int i = 0; i < List2.Count; i++)
+            {
+                newList.Add(List2[i]);
+            }
+
+            return newList;
+        }
     }
 
 
