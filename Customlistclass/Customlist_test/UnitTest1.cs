@@ -312,6 +312,128 @@ namespace Customlist_test
             //Assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void PlusOverload_TwoListsT_NewListContainsAllValuesOfEachList()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>() { 11, 2 };
+            CustomList<int> customList1 = new CustomList<int>() { 4, 9 };
+            CustomList<int> newList = new CustomList<int>();
+            CustomList<int> expected = new CustomList<int>() { 11, 2, 4, 9 };
+
+            //Act
+            newList = customList + customList1;
+
+            //Assert
+            Assert.AreEqual(expected[2], newList[2]);
+        }
+        [TestMethod]
+        public void PlusOverload_ThreeListsT_NewListContainsAllValuesOfEachList()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>() { 11, 2 };
+            CustomList<int> customList1 = new CustomList<int>() { 4, 9 };
+            CustomList<int> customList2 = new CustomList<int>() { 55, 66 };
+            CustomList<int> expected = new CustomList<int>() { 11, 2, 4, 9, 55, 66 };
+            CustomList<int> newList = new CustomList<int>();
+
+            //Act
+            newList = customList + customList1 + customList2;
+
+            //Assert
+            Assert.AreEqual(expected[3], newList[3]);
+        }
+        [TestMethod]
+        public void MinusOverload_TwoIdenticalListsSubtracted_NewListEmpty()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>() { 11, 2 };
+            CustomList<int> customList1 = new CustomList<int>() { 2, 11 };
+            CustomList<int> actualList = new CustomList<int>();
+            int actual = 0;
+            int expected = 0;
+            //Act
+            actualList = customList - customList1;
+            actual = actualList.Count;
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void MinusOverload_TwoCompletelyDifferntListsSubtracted_NewListEqualsFirstList()
+        {
+            //Arrange
+            CustomList<int> expected = new CustomList<int>() { 11, 2 };
+            CustomList<int> customList1 = new CustomList<int>() { 7, 44 };
+            CustomList<int> actual = new CustomList<int>();
+            //Act
+            actual = expected - customList1;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        // *** List Zip Tests***
+
+        [TestMethod]
+        public void Zip_TwoCustomLists_CountEqualsSumOfZippedListsCounts()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>() { 11, 2, 7, 8 };
+            CustomList<int> customList1 = new CustomList<int>() { 66, 77 };
+            int expected = 6;
+            int actual;
+            CustomList<int> newList = new CustomList<int>();
+            //Act
+            newList = customList.Zip(customList1);
+            actual = newList.Count;
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Zip_TwoCustomLists_NewListFirstValueIsSameAsFirstList()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>() { 11, 2, 7, 8 };
+            CustomList<int> customList1 = new CustomList<int>() { 66, 77 };
+            int expected = 11;
+            int actual;
+            CustomList<int> newList = new CustomList<int>();
+            //Act
+            newList = customList.Zip(customList1);
+            actual = newList[0];
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Zip_TwoCustomLists_ThirdValueInNewListIsSecondInFirstList()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>() { 11, 9, 7, 8 };
+            CustomList<int> customList1 = new CustomList<int>() { 66, 77 };
+            int expected = 9;
+            int index = 2;
+            int actual;
+            CustomList<int> newList = new CustomList<int>();
+            //Act
+            newList = customList.Zip(customList1);
+            actual = newList[index];
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        //ToString Tests
+        
+        [TestMethod]
+        public void ToString_OneList_StringLengthEqualsNumberOfValuesPlusCommas()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>() { 11, 9, 7, 8 };
+            int expected = 11;
+            //Act
+            int actual = customList.ToString().Length;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
 
