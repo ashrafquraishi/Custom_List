@@ -6,28 +6,7 @@ namespace Customlist_test
     [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
-        public void Add_EmptyList_ValueToIndexZero()
-        {
-            // Arrange
-            CustomList<int> numbers = new CustomList<int>();
-            int expected = 0;
-            // Act
-            numbers.Add(10);
-            //Assert
-            Assert.AreEqual(expected, numbers[0]);
-        }
-        [TestMethod]
-        public void Add_EmptyList_CountOfOne()
-        {
-            // Arrange
-            CustomList<int> numbers = new CustomList<int>();
-            int expected = 1;
-            // Act
-            numbers.Add(100);
-            //Assert
-            Assert.AreEqual(expected, numbers.Count);
-        }
+       
         [TestMethod]
         public void Remove_IntIncludedInList_OtherIntIsOnlyOneRemaining()
         {

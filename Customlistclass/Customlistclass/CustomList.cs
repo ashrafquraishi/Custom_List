@@ -9,12 +9,10 @@ namespace Custom_list_class
 {
     public class CustomList<T> : IEnumerable<T>
     {
-        T[] data;
-        int count;
+        T[] items = new T[1];
+        private int count = 0;
+        private int capacity = 4;
 
-        int capacity;
-        public T[] myListArray;
-        private T[] items;
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
@@ -26,114 +24,8 @@ namespace Custom_list_class
                 yield return items[i];
             }
         }
-            public CustomList()
-        {
-            count = 0;
-            capacity = 5;
-            myListArray = new T[capacity];
-        }
-        public CustomList(int capacity)
-        {
-            count = 0;
-            myListArray = new T[capacity];
-            this.capacity = capacity;
-        }
-        public int Capacity
-        {
-            get
-            {
-                return capacity;
-            }
-            set
-            {
-                capacity = value;
-            }
-        }
-        public int Count
-        {
-            get
-            {
-                return count;
-            }
-        }
-    
-        
 
-        public void Add(T value)
-        {
-            T[] temp = new T[capacity * 2];
-
-            for (int i = 0; i < Count; i++)
-            {
-                temp[i] = temp[i];
-            }
-            if (Count == capacity)
-            {
-                capacity = capacity * 2;
-            }
-            temp[count] = value;
-            count++;
-            items = temp;
-            SetCount();
-        }
-        private void SetCount()
-        {
-            int i = 0;
-            foreach (T value in this)
-            {
-                i++;
-            }
-            count = i;
-        }
-
-        public void DoubleArraySize()
-        {
-            int doubleCapacity = capacity * 2;
-            T[] temporary = new T[(doubleCapacity)];
-            for (int i = 0; i < (capacity); i++)
-            {
-                temporary[i] = myListArray[i];
-            }
-            capacity = capacity * 2;
-            myListArray = temporary;
-        }
-
-
-        public bool Remove(T item)
-        {
-            T[] temporary = new T[capacity];
-            bool shiftDown = false;
-            for (int i = 0; i < count; i++)
-            {
-                if (myListArray[i].Equals(item))
-                {
-                    temporary[i] = myListArray[i + 1];
-                    count--;
-                    // shiftDown = true;///
-                }
-                else if (shiftDown == true)
-                {
-                    temporary[i] = myListArray[i + 1];
-                }
-                else
-                {
-                    temporary[i] = myListArray[i];
-                }
-            }
-            myListArray = temporary;
-            return shiftDown;
-        }
-        
-
-        public override string ToString()
-        {
-            string myString = "";
-            foreach (T element in myListArray)
-            {
-                myString += string.Format("{0}", element);
-            }
-            return myString;
-        }
+        // indexer
         public T this[int i]
         {
             get
@@ -149,6 +41,82 @@ namespace Custom_list_class
                 items[i] = value;
             }
         }
+
+        public int Count
+        {
+            get => count;
+        }
+        // Check
+        public void Add(T value)
+        {
+            T[] temp = new T[capacity * 2];
+
+            for (int i = 0; i < Count; i++)
+            {
+                temp[i] = items[i];
+            }
+            if (Count == capacity)
+            {
+                capacity = capacity * 2;
+            }
+            temp[count] = value;
+            count++;
+            items = temp;
+            SetCount();
+        }
+
+        public void Remove(T value)
+        {
+            T[] temp = new T[capacity * 2];
+            int itemsRemoved = 0;
+
+            if (count == 0)
+            {
+                ArgumentOutOfRangeException e = new ArgumentOutOfRangeException();
+                throw e;
+            }
+            for (int i = 0; i <= count; i++)
+            {
+                if (!items[i].Equals(value))
+                {
+                    temp[i - itemsRemoved] = items[i];
+                }
+                else if (items[i].Equals(value))
+                {
+                    count--;
+                    itemsRemoved++;
+                }
+            }
+            items = temp;
+            SetCount();
+        }
+
+        private void SetCount()
+        {
+            int i = 0;
+            foreach (T value in this)
+            {
+                i++;
+            }
+            count = i;
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            string toString;
+            for (int i = 0; i < Count; i++)
+            {
+                sb.Append(this[i].ToString());
+                if (i < Count - 1)
+                {
+                    sb.Append(", ");
+                }
+            }
+            toString = sb.ToString();
+            return toString;
+        }
+
         public static CustomList<T> operator +(CustomList<T> List1, CustomList<T> List2)
         {
             CustomList<T> newList = new CustomList<T>();
@@ -162,6 +130,54 @@ namespace Custom_list_class
                 newList.Add(List2[i]);
             }
 
+            return newList;
+        }
+
+        public static CustomList<T> operator -(CustomList<T> List1, CustomList<T> List2)
+        {
+            CustomList<T> newList = new CustomList<T>();
+            newList = List1;
+
+            for (int i = 0; i < newList.Count; i++)
+            {
+                for (int j = 0; j < List2.Count; j++)
+                {
+                    if (newList[i].Equals(List2[j]))
+                    {
+                        newList.Remove(newList[i]);
+                        i = 0;
+                        j = -1;
+                    }
+                }
+            }
+
+            return newList;
+        }
+
+        public CustomList<T> Zip(CustomList<T> List2)
+        {
+            CustomList<T> newList = new CustomList<T>();
+            int highestCount;
+
+            if (Count > List2.Count)
+            {
+                highestCount = Count;
+            }
+            else
+            {
+                highestCount = List2.Count;
+            }
+            for (int i = 0; i < highestCount; i++)
+            {
+                if (i < Count)
+                {
+                    newList.Add(this[i]);
+                }
+                if (i < List2.Count)
+                {
+                    newList.Add(List2[i]);
+                }
+            }
             return newList;
         }
 
